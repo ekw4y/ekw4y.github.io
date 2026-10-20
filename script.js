@@ -55,3 +55,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Select your button and mobile navigation menu
+  const menuButton = document.querySelector('.menu');
+  const mobileNav = document.querySelector('.mobile-nav');
+
+  // Listen for the click event on the hamburger button
+  menuButton.addEventListener('click', () => {
+    // Toggle your existing 'open' class on the navigation
+    const isOpen = mobileNav.classList.toggle('open');
+    
+    // Dynamically update aria-expanded (true if open, false if closed)
+    menuButton.setAttribute('aria-expanded', isOpen);
+  });
+});
