@@ -1,7 +1,7 @@
 # Personal Website 🪷🐈
 Welcome to the repository for my personal website.
 
-🔗 [ekworley.github.io](https://ekworley.github.io)
+🔗 [worleyek.github.io](https://worleyek.github.io)
 
 
 ## Features
