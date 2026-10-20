@@ -410,7 +410,6 @@ h3 {
 		align-items: flex-start;
 		padding: 18px 0 20px;
 		border-top: 1px solid var(--border);
-		gap: 14px;
 	}
 
 	.hero {
