@@ -60,21 +60,21 @@
                A data project by Emily Worley
             </a>
           </p>
-          <h2 style="letter-spacing: 2px">
+          <h2 style="letter-spacing: 2px; font-size: 20px">
             <b>INSURANCE CLAIMS EXPLORER</b>
             <span aria-hidden="true"></span>
           </h2>
         </div>
       </div>
       <div class="claims-dataset-line">
-        <span><span class="claims-status-dot" aria-hidden="true"></span>500,000 policy records</span>
+        <span><span class="claims-status-dot" aria-hidden="true" style="font-size: 14px"></span>500,000 policy records</span>
         <span>SQL <span aria-hidden="true">/</span> Python <span aria-hidden="true">/</span> Java <span aria-hidden="true">/</span> Machine Learning</span>
       </div>
       <details class="claims-notes">
-        <summary style="font-size: 14px; letter-spacing: 2px"><b>BEHIND THE ANALYSIS</b>:<span style="font-size: 14px; letter-spacing: 1px">Overview, data, definitions, and methodology</span></summary>
+        <summary style="font-size: 18px; letter-spacing: 2px"><b>BEHIND THE ANALYSIS</b>:<span style="font-size: 16px; letter-spacing: 1px">Overview, data, definitions, and methodology</span></summary>
         <br>
-        <h3 style="letter-spacing: 2px"><b>OVERVIEW</b></h3>
-        <p class="muted" style="font-family: Lora; font-size: 12px">
+        <h3 style="letter-spacing: 2px; font-size: 18px"><b>OVERVIEW</b></h3>
+        <p class="muted" style="font-family: Lora; font-size: 16px">
           Using SQL and Python, I cleaned auto insurance data, developed features for
           risk and customer segmentation, and compared six regression models. Random
           Forest produced the strongest results and was used to generate the predicted
@@ -83,7 +83,7 @@
           dashboard.
         </p>
         <br>
-        <p class="muted" style="font-family: Lora; font-size: 12px">
+        <p class="muted" style="font-family: Lora; font-size: 16px">
           Explore the views below to compare observed and predicted claims, investigate
           customer segments, and review model performance. Filter by state, coverage,
           vehicle class, and income band, or select chart categories, to see how patterns
@@ -92,8 +92,8 @@
         </p>
         <div class="claims-notes-grid">
           <div>
-            <h3 style="letter-spacing: 2px"><b>THE PORTFOLIO</b></h3>
-            <p class="muted" style="font-family: Lora; font-size: 12px">
+            <h3 style="letter-spacing: 2px; font-size: 18px"><b>THE PORTFOLIO</b></h3>
+            <p class="muted" style="font-family: Lora; font-size: 16px">
               Charts summarize all 500,000 records in the project’s synthetic
               <code>claims_predictions.csv</code> export, without sampling. One row is
               counted as one policy record. Averages are weighted by record count. A
@@ -102,8 +102,8 @@
             </p>
           </div>
           <div>
-            <h3 style="letter-spacing: 2px"><b>THE MODEL</b></h3>
-            <p class="muted" style="font-family: Lora; font-size: 12px">
+            <h3 style="letter-spacing: 2px; font-size: 18px"><b>THE MODEL</b></h3>
+            <p class="muted" style="font-family: Lora; font-size: 16px">
               Predicted claims come from the exported Random Forest results. The six
               model benchmarks use the original dataset’s held-out test split (80%
               training, 20% test; approximately 9,000 source records), rather than
@@ -112,8 +112,8 @@
             </p>
           </div>
           <div>
-            <h3 style="letter-spacing: 2px"><b>RISK &amp; SEVERITY</b></h3>
-            <p class="muted" style="font-family: Lora; font-size: 12px">
+            <h3 style="letter-spacing: 2px; font-size: 18px"><b>RISK &amp; SEVERITY</b></h3>
+            <p class="muted" style="font-family: Lora; font-size: 16px">
               Risk scores are the source project’s rules: +2 for income below $30,000,
               +2 for open complaints, and +3 for claims above $1,500. The score
               incorporates actual claims and is descriptive. Severity labels follow the
@@ -121,8 +121,8 @@
             </p>
           </div>
           <div>
-            <h3 style="letter-spacing: 2px"><b>READING THE RESULTS</b></h3>
-            <p class="muted" style="font-family: Lora; font-size: 12px">
+            <h3 style="letter-spacing: 2px; font-size: 18px"><b>READING THE RESULTS</b></h3>
+            <p class="muted" style="font-family: Lora; font-size: 16px">
               Income bands and severity labels are preserved from the synthetic export.
               Premium and customer lifetime value can encode existing risk information.
               Synthetic expansion may limit generalization. No time trend is inferred
