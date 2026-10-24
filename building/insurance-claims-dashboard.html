@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Emily Worley's insurance claims risk model: an interactive look at 500,000 synthetic policy records, customer segments, and model performance.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="dashboard/insurance-claims/claims-dashboard.css">
+  
+  <script src="../script.js?v=theme-sync-2" defer></script>
+  <script src="dashboard/insurance-claims/claims-dashboard.js" defer></script>
+  <script src="../theme-init.js"></script>
+  
+  <title>Emily Worley — worleyek.github.io</title>
+</head>
+ <body>
+		<header class="site-header">
+			<div class="container">
+				<div class="header-inner">
+					<a class="brand" href="index.html">
+						<span class="brand-name">Emily Worley</span>
+						<span class="brand-sub">analyst · programmer · cat person</span>
+					</a>
+					
+				  <!--Navigation-->
+					<nav aria-label="Main">
+						<a href="../writing.html" class=""><i class="fa-solid fa-pencil"></i>writing</a>
+						<a href="../building.html" class=""><i class="fa-solid fa-code"></i>building</a>
+						<a href="../creating.html" class=""><i class="fa-solid fa-paintbrush"></i>creating</a>
+						<a href="../reading.html" class=""><i class="fa-solid fa-book"></i>reading</a>
+					</nav>
+					<button class="menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+				</div>
+				<nav class="mobile-nav" aria-label="Mobile main">
+					<a href="../writing.html" class=""><i class="fa-solid fa-pencil"></i>writing</a>
+					<a href="../building.html" class=""><i class="fa-solid fa-code"></i>building</a>
+					<a href="../creating.html" class=""><i class="fa-solid fa-paintbrush"></i>creating</a>
+					<a href="../reading.html" class=""><i class="fa-solid fa-book"></i>reading</a>
+				</nav>
+			</div>
+		</header>
+
+  <main class="container">
+    <!-- The dashboard shares the document and the site's theme variables. -->
+    <section class="claims-dashboard" id="insurance-claims" aria-labelledby="claims-title">
+      <div class="claims-intro">
+        <div>
+          <p>
+            <a
+              href="https://github.com/worleyek/insurance-claims-risk-model"
+              target="_blank"
+              rel="noopener"
+              class="claims-eyebrow"
+            >
+              A data project by Emily Worley
+            </a>
+          </p>
+          <i class="fa-solid fa-up-right-from-square"></i>
+          <h2 style="letter-spacing: 2px">
+            <b>INSURANCE CLAIMS EXPLORER</b>
+            <span aria-hidden="true"></span>
+          </h2>
+        </div>
+      </div>
+      <div class="claims-dataset-line">
+        <span><span class="claims-status-dot" aria-hidden="true"></span>500,000 synthetic policy records</span>
+        <span>SQL <span aria-hidden="true">/</span> Python <span aria-hidden="true">/</span> Java <span aria-hidden="true">/</span> Machine learning</span>
+      </div>
+      <details class="claims-notes">
+        <summary>Behind the analysis <span>Data, definitions &amp; methodology</span></summary>
+        <br>
+        <h3 style="letter-spacing: 2px"><b>OVERVIEW</b></h3>
+        <p class="muted" style="font-family: Lora; font-size: 12px">
+          Using SQL and Python, I cleaned auto insurance data, developed features for
+          risk and customer segmentation, and compared six regression models. Random
+          Forest produced the strongest results and was used to generate the predicted
+          claim amounts shown here. I also built a Java pipeline that validates and
+          aggregates the project’s 500,000 synthetic policy records into JSON for the
+          dashboard.
+        </p>
+        <br>
+        <p class="muted" style="font-family: Lora; font-size: 12px">
+          Explore the views below to compare observed and predicted claims, investigate
+          customer segments, and review model performance. Filter by state, coverage,
+          vehicle class, and income band, or select chart categories, to see how patterns
+          change across the portfolio. The risk scores reflect the project’s predefined
+          rules, while predicted claim amounts come from the machine learning model.
+        </p>
+        <div class="claims-notes-grid">
+          <div>
+            <h3 style="letter-spacing: 2px"><b>THE PORTFOLIO</b></h3>
+            <p>
+              Charts summarize all 500,000 records in the project’s synthetic
+              <code>claims_predictions.csv</code> export, without sampling. One row is
+              counted as one policy record. Averages are weighted by record count. A
+              Java exporter streams the CSV files into the JSON dataset loaded by this
+              page. This is a static project snapshot.
+            </p>
+          </div>
+          <div>
+            <h3 style="letter-spacing: 2px"><b>THE MODEL</b></h3>
+            <p>
+              Predicted claims come from the exported Random Forest results. The six
+              model benchmarks use the original dataset’s held-out test split (80%
+              training, 20% test; approximately 9,000 source records), rather than
+              the expanded synthetic portfolio. The feature chart shows the ten
+              supplied features without rescaling their importance.
+            </p>
+          </div>
+          <div>
+            <h3 style="letter-spacing: 2px"><b>RISK &amp; SEVERITY</b></h3>
+            <p>
+              Risk scores are the source project’s rules: +2 for income below $30,000,
+              +2 for open complaints, and +3 for claims above $1,500. The score
+              incorporates actual claims and is descriptive. Severity labels follow the
+              source export: low (&lt;$500), medium ($500–$2,000), and high (&gt;$2,000).
+            </p>
+          </div>
+          <div>
+            <h3 style="letter-spacing: 2px"><b>READING THE RESULTS</b></h3>
+            <p>
+              Income bands and severity labels are preserved from the synthetic export.
+              Premium and customer lifetime value can encode existing risk information.
+              Synthetic expansion may limit generalization. No time trend is inferred
+              from the source dates. These are project analysis results, not live
+              underwriting scores.
+            </p>
+          </div>
+        </div>
+      </details>
+      <br>
+      <div class="claims-tabs" role="tablist" aria-label="Insurance analysis views">
+        <button id="claims-tab-overview" class="claims-tab" type="button" role="tab" aria-selected="true" aria-controls="claims-panel-overview" tabindex="0" data-view="overview">
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <rect x="3" y="3" width="5" height="5" rx="1" />
+            <rect x="12" y="3" width="5" height="5" rx="1" />
+            <rect x="3" y="12" width="5" height="5" rx="1" />
+            <rect x="12" y="12" width="5" height="5" rx="1" />
+          </svg>
+          Overview
+        </button>
+        <button id="claims-tab-risk" class="claims-tab" type="button" role="tab" aria-selected="false" aria-controls="claims-panel-risk" tabindex="-1" data-view="risk">
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M10 2 17 5v5c0 4-7 8-7 8S3 14 3 10V5Z" />
+            <path d="m7 10 2 2 4-4" />
+          </svg>
+          Risk segmentation
+        </button>
+        <button id="claims-tab-customers" class="claims-tab" type="button" role="tab" aria-selected="false" aria-controls="claims-panel-customers" tabindex="-1" data-view="customers">
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <circle cx="8" cy="6" r="3" />
+            <path d="M2 18v-3a6 6 0 0 1 12 0v3M14 3a3 3 0 0 1 0 6M16 12a5 5 0 0 1 2 4v2" />
+          </svg>
+          Customer insights
+        </button>
+        <button id="claims-tab-models" class="claims-tab" type="button" role="tab" aria-selected="false" aria-controls="claims-panel-models" tabindex="-1" data-view="models">
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M3 3v14h14M6 13l3-4 3 2 5-7" />
+          </svg>
+          Model performance
+        </button>
+      </div>
+
+      <form class="claims-filters" id="claims-filters" aria-label="Filter the policy portfolio">
+        <div class="claims-filter-heading">
+          <span>Explore the portfolio</span>
+          <button class="claims-text-button" id="claims-reset" type="reset">
+            Reset filters <span aria-hidden="true">↺</span>
+          </button>
+        </div>
+        <div class="claims-filter-grid">
+          <label>
+            State
+            <select name="state" data-filter="state">
+              <option value="">All states</option>
+            </select>
+          </label>
+          <label>
+            Coverage
+            <select name="coverage" data-filter="coverage">
+              <option value="">All coverage</option>
+            </select>
+          </label>
+          <label>
+            Vehicle class
+            <select name="vehicle_class" data-filter="vehicle_class">
+              <option value="">All vehicles</option>
+            </select>
+          </label>
+          <label>
+            Income band
+            <select name="income_band" data-filter="income_band">
+              <option value="">All income bands</option>
+            </select>
+          </label>
+        </div>
+        <details class="claims-more-filters">
+          <summary>More filters</summary>
+          <div class="claims-filter-grid">
+            <label>
+              Policy type
+              <select name="policy_type" data-filter="policy_type">
+                <option value="">All policy types</option>
+              </select>
+            </label>
+            <label>
+              Vehicle size
+              <select name="vehicle_size" data-filter="vehicle_size">
+                <option value="">All sizes</option>
+              </select>
+            </label>
+            <label>
+              Location
+              <select name="location" data-filter="location">
+                <option value="">All locations</option>
+              </select>
+            </label>
+            <label>
+              Risk score
+              <select name="risk_score" data-filter="risk_score">
+                <option value="">All risk scores</option>
+              </select>
+            </label>
+          </div>
+        </details>
+        <div id="claims-active-filters" class="claims-active-filters" aria-label="Active filters"></div>
+      </form>
+
+      <div class="claims-results-line">
+        <p id="claims-results" tabindex="-1" role="status" aria-live="polite">Loading the portfolio…</p>
+        <button type="button" class="claims-text-button" id="claims-export" disabled>
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M10 2v10m-4-4 4 4 4-4M3 13v4h14v-4" />
+          </svg>
+          Export summary
+        </button>
+      </div>
+
+      <div class="claims-kpis" id="claims-kpis" aria-label="Selected portfolio summary"></div>
+      <div class="claims-empty" id="claims-empty" hidden>
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="14" cy="14" r="9" />
+          <path d="m21 21 8 8M10 14h8" />
+        </svg>
+        <h3>No policies in this selection</h3>
+        <p>Try a broader combination, or reset the filters to explore the full portfolio.</p>
+        <button type="button" data-reset>Reset all filters</button>
+      </div>
+      <div id="claims-panel-overview" class="claims-view" role="tabpanel" aria-labelledby="claims-tab-overview" tabindex="0"></div>
+      <div id="claims-panel-risk" class="claims-view" role="tabpanel" aria-labelledby="claims-tab-risk" tabindex="0" hidden></div>
+      <div id="claims-panel-customers" class="claims-view" role="tabpanel" aria-labelledby="claims-tab-customers" tabindex="0" hidden></div>
+      <div id="claims-panel-models" class="claims-view" role="tabpanel" aria-labelledby="claims-tab-models" tabindex="0" hidden></div>
+      <div class="claims-bottom-line"><span>Made to explore! Click a chart category to filter.</span><span>All amounts in USD.</span></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+			<div class="container footer-inner">
+				<button class="theme-toggle">Dark mode</button>
+				<a href="../index.html">worleyek.github.io</a>
+				<div>
+				<!--Links-->
+				<a href="https://github.com/worleyek" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+				<a href="https://linkedin.com/in/worleyek" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+				</div>
+			</div>
+		</footer>
+		<div class="lightbox">
+			<img alt="Expanded gallery image">
+		</div>
+		<script src="../script.js"></script>
+	</body>
+</html>
