@@ -296,6 +296,11 @@ button.claims-chart-row:hover { background: var(--claims-surface-hover); }
   .claims-chart-axis { margin-left: 82px; margin-right: 54px; }
   .claims-simple-chart .claims-chart-row { grid-template-columns: 100px minmax(0, 1fr) 45px; }
 }
+/* Give the dashboard more room while keeping it responsive. */
+.container.claims-page-container {
+  width: min(100% - 32px, 1120px);
+  min-width: 0;
+}
 @media (prefers-reduced-motion: reduce) {
   .building-page, .building-page * { scroll-behavior: auto !important; transition: none !important; }
 }
